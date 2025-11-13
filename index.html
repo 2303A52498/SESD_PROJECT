@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0e6df5c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav>
+    <h1>📚 Smart Library System</h1>
+    <ul>
+      <li onclick="showSection('dashboard')">Dashboard</li>
+      <li onclick="showSection('search')">Search</li>
+      <li onclick="showSection('borrow')">Borrow</li>
+      <li onclick="showSection('return')">Return</li>
+      <li onclick="showSection('fines')">Fines</li>
+      <li onclick="showSection('notifications')">Notifications</li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2 id="sectionTitle">Dashboard</h2>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="section active">
+      <div class="cards">
+        <div class="card gradient-blue">
+          <i class="fas fa-book"></i>
+          <h3>Total Books</h3>
+          <p id="totalBooks">0</p>
+        </div>
+        <div class="card gradient-green">
+          <i class="fas fa-hand-holding"></i>
+          <h3>Borrowed Books</h3>
+          <p id="borrowedCount">0</p>
+        </div>
+        <div class="card gradient-purple">
+          <i class="fas fa-coins"></i>
+          <h3>Total Fine</h3>
+          <p id="fineAmount">₹0</p>
+        </div>
+      </div>
+
+      <h3 class="subhead">📖 Top Genres</h3>
+      <ul class="genres">
+        <li>AI & Machine Learning</li>
+        <li>Web Development</li>
+        <li>Data Science</li>
+        <li>Cybersecurity</li>
+        <li>Cloud Computing</li>
+      </ul>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search" class="section">
+      <div class="searchBar">
+        <input type="text" id="searchInput" placeholder="Search by book title or author...">
+        <select id="categorySelect">
+          <option value="all">All Categories</option>
+          <option value="AI">AI</option>
+          <option value="ML">ML</option>
+          <option value="Web Dev">Web Dev</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Cloud">Cloud</option>
+          <option value="Data Science">Data Science</option>
+        </select>
+        <button onclick="searchBooks()">Search</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th><th>Author</th><th>Category</th><th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="bookTableBody"></tbody>
+      </table>
+    </section>
+
+    <!-- Borrow Section -->
+    <section id="borrow" class="section">
+      <h3>Borrow a Book</h3>
+      <input type="text" id="borrowStudent" placeholder="Student Name">
+      <input type="text" id="borrowBook" placeholder="Book Title">
+      <button onclick="borrowBook()">Borrow</button>
+    </section>
+
+    <!-- Return Section -->
+    <section id="return" class="section">
+      <h3>Return a Book</h3>
+      <input type="text" id="returnStudent" placeholder="Student Name">
+      <input type="text" id="returnBook" placeholder="Book Title">
+      <button onclick="returnBook()">Return</button>
+    </section>
+
+    <!-- Fine Section -->
+    <section id="fines" class="section">
+      <h3>Fine Management</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Student</th><th>Book</th><th>Days Late</th><th>Fine (₹)</th>
+          </tr>
+        </thead>
+        <tbody id="fineTableBody"></tbody>
+      </table>
+    </section>
+
+    <!-- Notifications -->
+    <section id="notifications" class="section">
+      <h3>Notifications</h3>
+      <ul id="notificationList"></ul>
+    </section>
+  </main>
+</body>
+</html>
+
+
+
+
+
+
